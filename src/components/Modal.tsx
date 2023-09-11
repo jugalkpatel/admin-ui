@@ -8,6 +8,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { X } from "lucide-react";
 
 type ModalProps = {
   open: boolean;
@@ -33,7 +34,7 @@ export default function Modal({
   return (
     <AlertDialog open={open}>
       <AlertDialogContent>
-        <AlertDialogHeader>
+        <AlertDialogHeader className="flex flex-row justify-between">
           {title ? <AlertDialogTitle>{title}</AlertDialogTitle> : null}
           {description ? (
             <AlertDialogDescription>{description}</AlertDialogDescription>
@@ -50,6 +51,10 @@ export default function Modal({
             </AlertDialogAction>
           </AlertDialogFooter>
         )}
+        <X
+          className="absolute top-0 right-0 m-2 cursor-pointer"
+          onClick={handleCancel}
+        />
       </AlertDialogContent>
     </AlertDialog>
   );
